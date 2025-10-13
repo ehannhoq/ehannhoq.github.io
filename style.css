@@ -11,6 +11,14 @@ h1, h2, h3, h4, h5, h6, p {
 
 img {
     object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+#image-placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: #111015;
 }
 
 .overflow-hidden {
@@ -28,7 +36,7 @@ img {
 }
 
 #socials {
-    margin-bottom: 20px;
+    margin-bottom: 5%;
 }
 
 .local-link {
@@ -96,13 +104,59 @@ img {
     padding: 10px;
 }
 
-#image-placeholder {
-    width: 500px;
-    height: 500px;
-    background-color: #111015;
-}
 
 #social-links {
     padding: 50px;
     font-size: x-large  ;
+}
+
+.contact-element {
+    width: 100%;
+    margin: 1%;
+}
+
+#email-contact {
+    width: 25%;
+}
+
+#email-address {
+    flex: 1;
+}
+#email-subject {
+    flex: 1;
+}
+#email-content {
+    flex: 15;
+    resize: none;
+}
+
+#send-email {
+    background-color: #73ba7d;
+    color: #ffffff;
+    border: 0px solid #1d3626;
+    border-radius: 3px;
+    padding: 5%;
+    font-size: large;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.sent-email {
+    animation-name: send-email-click;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+#send-email:hover {
+    animation-name: send-email-hover;
+    animation-duration: 150ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+}
+@keyframes send-email-hover {
+    0% { background-color: #73ba7d; }
+    100% { background-color: #427649; }
+}
+@keyframes send-email-click {
+    0% { transform:scale(1, 1)}
+    100% { transform:scale(1, 0)}
 }

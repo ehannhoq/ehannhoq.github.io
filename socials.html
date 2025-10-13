@@ -6,6 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>socials</title>
     <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init({
+                publicKey: "bzsbX_wK7clPG7Hj7",
+            });
+        })();
+    </script>
+    <script type="text/javascript">
+        window.onload = function () {
+
+            const sendButton = document.getElementById('send-email');
+            sendButton.addEventListener('click', function (event) {
+                event.preventDefault();
+                sendButton.classList.add('sent-email');
+
+                const emailAddress = document.getElementById('email-address').value;
+                const emailSubject = document.getElementById('email-subject').value;
+                const emailContent = document.getElementById('email-content').value;
+
+                var params = {
+                    "email": emailAddress,
+                    "subject": emailSubject,
+                    "content": emailContent
+                }
+
+                emailjs.send("service_iwkjij6", "template_zi8a3x9", params).then(
+                    (response) => {
+                        console.log('SUCCESS');
+                    },
+                    (error) => {
+                        console.log('FAILED');
+                    }
+                );
+            })
+        }
+    </script>
+
 </head>
 
 <body class="overflow-hidden">
@@ -16,18 +54,31 @@
             <a href="socials.html" class="local-link">socials</a>
         </header>
 
-        <div>
-            <section class="flex flex-col align-center">
-                <a id="social-links" class="external-link" target="_blank" href="https://www.instagram.com/ehann.h/">[ instagram ]</a>
-                <a id="social-links" class="external-link" target="_blank" href="https://github.com/ehannhoq">[ github ]</a>
-                <a id="social-links" class="external-link" target="_blank" href="https://www.linkedin.com/in/ehan-haque-a0400a317/">[ linkedin ]</a>
-                <a id="social-links" class="external-link" target="_blank" href="https://www.youtube.com/@ehann.n">[ youtube ]</a>
+        <div class="flex flex-row justify-evenly">
+            <section id="socials" class="flex flex-col align-center">
+                <a id="social-links" class="external-link" target="_blank" href="https://www.instagram.com/ehann.h/">[
+                    instagram ]</a>
+                <a id="social-links" class="external-link" target="_blank" href="https://github.com/ehannhoq">[ github
+                    ]</a>
+                <a id="social-links" class="external-link" target="_blank"
+                    href="https://www.linkedin.com/in/ehan-haque-a0400a317/">[ linkedin ]</a>
+                <a id="social-links" class="external-link" target="_blank" href="https://www.youtube.com/@ehann.n">[
+                    youtube ]</a>
+            </section>
+
+            <section id="email-contact" class="flex flex-col align-center">
+                <h3>Contact me</h3>
+                <input class="contact-element" type="text" id="email-address" name="email-address"
+                    placeholder="Enter your email address">
+                <input class="contact-element" type="text" id="email-subject" name="email-subject"
+                    placeholder="Subject">
+                <textarea class="contact-element" type="text" id="email-content" name="email-content"></textarea>
+                <button class="contact-element" id="send-email">Send</button>
             </section>
         </div>
 
         <footer>
         </footer>
-
     </div>
 </body>
 
