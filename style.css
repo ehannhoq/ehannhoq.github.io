@@ -1,11 +1,18 @@
-html, body {
+html,
+body {
     background-color: #1d1c22;
     height: 100%;
 }
 
-h1, h2, h3, h4, h5, h6, p {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
     color: #faebd7;
-    margin:0;
+    margin: 0;
     padding: 0;
 }
 
@@ -107,7 +114,7 @@ img {
 
 #social-links {
     padding: 50px;
-    font-size: x-large  ;
+    font-size: x-large;
 }
 
 .contact-element {
@@ -122,9 +129,11 @@ img {
 #email-address {
     flex: 1;
 }
+
 #email-subject {
     flex: 1;
 }
+
 #email-content {
     flex: 15;
     resize: none;
@@ -152,11 +161,40 @@ img {
     animation-fill-mode: forwards;
     animation-timing-function: ease-in;
 }
+
 @keyframes send-email-hover {
-    0% { background-color: #73ba7d; }
-    100% { background-color: #427649; }
+    0% {
+        background-color: #73ba7d;
+    }
+
+    100% {
+        background-color: #427649;
+    }
 }
+
 @keyframes send-email-click {
-    0% { transform:scale(1, 1)}
-    100% { transform:scale(1, 0)}
+    0% {
+        transform: scale(1, 1)
+    }
+
+    100% {
+        transform: scale(1, 0)
+    }
+}
+
+@media screen and (max-width: 800px) {
+    #socials-container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .contact-element {
+        width: 50vw;
+    }
+    #email-content {
+        padding-top: 40%;
+    }
+    #send-email {
+        width: 50vw;
+    }
 }
