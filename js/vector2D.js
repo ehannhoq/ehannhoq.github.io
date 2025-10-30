@@ -12,7 +12,12 @@ export class Vector2D {
     mult(m) {
         return new Vector2D(this.x * m, this.y * m);
     }
-
+    lerp(vec, a) {
+        return new Vector2D(
+            this.x + (vec.x - this.x) * a,
+            this.y + (vec.y - this.y) * a
+        );
+    }
 }
 
 export function magnitude(vec) {

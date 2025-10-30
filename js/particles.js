@@ -15,12 +15,15 @@ document.addEventListener('mousemove', (e) => {
 });
 
 const ctx = canvas.getContext("2d");
+const minDist = 100;
 
 class Particle {
     constructor() {
         this.pos = new Vector2D(Math.random() * canvas.width, Math.random() * canvas.height);
         this.speed = new Vector2D(Math.random() * 2 - 1, Math.random() * 2 - 1);
         this.size = Math.random() * 3 + 1;
+
+        this.originalSpeed = this.speed;
     }
 
     update() {
@@ -29,10 +32,13 @@ class Particle {
         if (mousePos) {
             const dist = magnitude(this.pos.sub(mousePos));
 
-            if (dist < 200) {
+            if (dist < minDist) {
                 let vec = this.pos.sub(mousePos);
-                vec = normalize(vec).mult(3);
-                this.pos = this.pos.add(vec);
+                vec = normalize(vec).mult((minDist - dist) / 100);
+                this.speed = this.speed.add(vec);
+            }
+            else {
+                this.speed = this.speed.lerp(this.originalSpeed, 0.05);
             }
         }
 
