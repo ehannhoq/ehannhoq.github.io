@@ -20,8 +20,8 @@ const minDist = 100;
 class Particle {
     constructor() {
         this.pos = new Vector2D(Math.random() * canvas.width, Math.random() * canvas.height);
-        this.speed = new Vector2D(Math.random() * 2 - 1, Math.random() * 2 - 1);
-        this.size = Math.random() * 3 + 1;
+        this.speed = new Vector2D(Math.random() - 1, Math.random() - 1);
+        this.size = Math.random() + 1;
 
         this.originalSpeed = this.speed;
     }
