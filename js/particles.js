@@ -60,7 +60,15 @@ class Particle {
         ctx.beginPath();
         ctx.arc(this.pos.x, this.pos.y, this.size, 0, 2 * Math.PI)
         ctx.fillStyle = 'rgb(240, 238, 220)'
+
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = ctx.fillStyle;
+
         ctx.fill();
+
+        ctx.shadowBlur = 0;
+        ctx.shadowColor = 'transparent';
+
     }
 }
 
